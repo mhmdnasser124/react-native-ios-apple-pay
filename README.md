@@ -1,21 +1,71 @@
-# react-native-ios-apple-pay
+# rn-ios-apple-pay
 
 Welcome to the easiest way to add Apple Pay to your React Native iOS app for smooth, secure payments.
 
 ## Installation
 
 ```sh
-npm install react-native-ios-apple-pay
+npm install rn-ios-apple-pay
 ```
+
+```sh
+yarn add rn-ios-apple-pay
+```
+
+## Demo
+
+<img alt='demo-ios' src='https://i.ibb.co/GJYKkjq/apple-pay.gif' height="500" />
 
 ## Usage
 
 ```js
-import { multiply } from 'react-native-ios-apple-pay';
+import React from 'react';
+import { useApplePay } from 'rn-ios-apple-pay';
 
-// ...
+const App = () => {
+  const { initiateApplePayPayment, isApplePayAvailable } = useApplePay();
 
-const result = await multiply(3, 7);
+  const available = isApplePayAvailable();
+
+  // Example usage:
+  const handlePayment = async () => {
+    const paymentResult = await initiateApplePayPayment();
+    /* provide amount, currencyCode, merchantId, countryCode */
+    // Handle payment result
+  };
+
+  return (
+    <>
+      <Button onPress={handlePayment} title="Make Payment" />
+    </>
+  );
+};
+
+export default App;
+```
+
+## Payment Result
+
+```js
+
+{
+    "paymentData": {
+        "data": "",
+        "signature": "",
+        "header": {
+            "publicKeyHash": "",
+            "ephemeralPublicKey": "",
+            "transactionId": ""
+        },
+        "version": ""
+    },
+    "paymentMethod": {
+        "displayName": "",
+        "network": "",
+        "type": ""
+    },
+    "transactionIdentifier": ""
+}
 ```
 
 ## Contributing
@@ -25,7 +75,3 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 ## License
 
 MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)

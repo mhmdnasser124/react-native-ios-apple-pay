@@ -1,10 +1,17 @@
-#import <React/RCTBridgeModule.h>
+#import "React/RCTBridgeModule.h"
 
-@interface RCT_EXTERN_MODULE(IosApplePay, NSObject)
+@interface RCT_EXTERN_MODULE(ApplePay, NSObject)
 
-RCT_EXTERN_METHOD(multiply:(float)a withB:(float)b
-                 withResolver:(RCTPromiseResolveBlock)resolve
-                 withRejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXTERN_METHOD(makePayment:(nonnull NSNumber *)total
+                  currencyCode:(NSString *)currencyCode
+                  merchantId:(NSString *)merchantId
+                  countryCode:(NSString *)countryCode
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+
+RCT_EXTERN_METHOD(canMakePayments:(RCTPromiseResolveBlock)resolve
+  reject:(RCTPromiseRejectBlock)reject)
+
 
 + (BOOL)requiresMainQueueSetup
 {

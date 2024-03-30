@@ -1,6 +1,6 @@
 {
-  "name": "react-native-ios-apple-pay",
-  "version": "0.1.0",
+  "name": "rn-ios-apple-pay",
+  "version": "0.8.0",
   "description": "Welcome to the easiest way to add Apple Pay to your React Native iOS app for smooth, secure payments.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -37,7 +37,17 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "react",
+    "apple-pay",
+    "payments",
+    "payment-request",
+    "sca",
+    "cross platform",
+    "payment intents",
+    "pay",
+    "apple",
+    "rn-ios-apple-pay",
+    "react-native-apple-pay"
   ],
   "repository": {
     "type": "git",
@@ -121,7 +131,7 @@
     ],
     "rules": {
       "prettier/prettier": [
-        "error",
+        "warn",
         {
           "quoteProps": "consistent",
           "singleQuote": true,
@@ -156,5 +166,8 @@
         }
       ]
     ]
+  },
+  "directories": {
+    "example": "example"
   }
 }
